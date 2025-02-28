@@ -287,16 +287,40 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | new user                                   | see usage instructions       | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person             |                                                                        |
-| `* * *`  | user                                       | delete a person              | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name        | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name         | locate a person easily                                                 |
-
-*{More to be added}*
+| Priority | As a … | I want to … | So that I can … |
+|----------|--------|------------|----------------|
+| `***` | Student | Group contacts under categories such as "Classmates" | Easily locate specific individuals (e.g., peers or professors) when needed |
+| `***` | Student | Export contacts to a CSV file | Transfer contact data efficiently across different platforms |
+| `***` | Student | Link multiple contact methods to a single person (e.g., email, phone) | Communicate through multiple channels as needed |
+| `***` | Student | Search for a contact by name | Retrieve contact details quickly |
+| `***` | Student | Import contacts from a CSV file | Seamlessly transfer contacts between devices |
+| `***` | Student | Delete a contact from the address book | Remove outdated or unnecessary contacts efficiently |
+| `***` | Student | Create an automatic group based on faculty or module | Organize contacts systematically for better accessibility |
+| `***` | Student | Edit a contact’s details | Ensure information remains accurate and up to date |
+| `***` | Student | View a contact’s profile with their full details | Access comprehensive details when needed |
+| `***` | Student | Sort contacts alphabetically | Keep the contact list structured and organized |
+| `**` | Student | View upcoming birthdays of contacts | Plan ahead for important dates |
+| `**` | Student | See recent interactions with a contact (e.g., messages, meetings) | Identify frequently contacted individuals easily |
+| `**` | Student | Set a custom label for each contact (e.g., Project Work, Hostel) | Categorize contacts effectively for quick filtering |
+| `**` | Student | Favorite certain contacts for quick access | Quickly access frequently used contacts |
+| `**` | Student | Share a contact’s details with another student | Streamline collaboration and networking |
+| `**` | Student | Store emergency contact details in a dedicated section | Quickly access critical contact information in urgent situations |
+| `**` | Student | Add personal notes to a contact’s profile | Preserve important contextual information about a contact |
+| `**` | Teaching assistant | Store and access student contact details efficiently | Manage student information systematically |
+| `**` | Student | Delete all contacts in bulk if needed | Reset my contact list when necessary |
+| `**` | Project group leader | Create a contact group specific to a project | Easily access project members’ details for coordination |
+| `**` | Student | Tag contacts for events (e.g., workshops, conferences) | Efficiently group and identify event participants |
+| `**` | Student | Add a profile picture to a contact | Recognize contacts visually more easily |
+| `*` | Cybersecurity-conscious student | Enable a PIN or biometric authentication for accessing the address book | Protect my contact data from unauthorized access |
+| `*` | Student | Hide certain contacts from the main list | Maintain privacy by controlling which contacts are visible |
+| `*` | Student | Send reminders regarding a contact | Keep track of important follow-ups or tasks |
+| `*` | Student | Filter contacts based on faculty or department | Quickly identify relevant individuals based on their affiliations |
+| `*` | Student | Copy a contact’s details to the clipboard | Paste contact information into other applications as needed |
+| `*` | Course Manager | Create a contact list for students | Provide a structured system for students to connect easily |
+| `*` | CCA committee leader | Create a list of CCA members with their roles | Efficiently manage and identify CCA members |
+| `*` | Student | Scan a QR code to instantly save someone’s contact details | Quickly add new contacts without manual entry |
+| `*` | Student | Merge duplicate contacts | Maintain a clean and organized contact list |
+| `*` | Student | Customize the app’s theme (light/dark mode) | Personalize the user experience based on my visual preferences |
 
 ### Use cases
 
