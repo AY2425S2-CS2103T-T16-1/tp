@@ -66,12 +66,11 @@ NUSConnect is a **desktop app for managing contacts, optimized for use via a Com
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaning how to access the help page. This message can also be brought up using `F1`
 
 ![help message](images/helpMessage.png)
 
 Format: `help`
-
 
 ### Adding a person: `add`
 
