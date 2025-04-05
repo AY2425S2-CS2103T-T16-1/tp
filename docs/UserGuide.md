@@ -112,7 +112,7 @@ After forming a group in CS2103T Software Engineering, you add your two teammate
 * `add n/John Doe t/@johndoe /98765432 e/john@u.nus.edu a/John no/Enjoys programming w/https://johndoe.com m/CS2103T`
 * `add n/Betsy Crowe t/@bcrowe ma/Information Security no/Group Leader w/https://linkedin.com/betsycrowe m/CS2103T`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+<div markdown="block" class="alert alert-info">:bulb: **Note:**
 NUSConnect will execute some basic parameter checking for you! Here are the minimum requirements for each field:
 
 * Name: Starts with an alphanumeric character, and can contain alphanumeric characters, slashes, apostrophes, dashes, dots, spaces, and should not be blank.

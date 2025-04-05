@@ -21,11 +21,6 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 ## **Design**
 
-<div markdown="span" class="alert alert-primary">
-
-:bulb: **Tip:** The `.puml` files used to create diagrams in this document `docs/diagrams` folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
-</div>
-
 ### Architecture
 
 <img src="images/ArchitectureDiagram.png" width="280" />
@@ -315,100 +310,166 @@ NUSConnect helps students quickly add, organise and find contacts with minimal e
 
 (For all use cases below, the **System** is the `NUSConnect` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a contact**
+**Use case: UC1 - Adding a person**
 
 **MSS**
 
-1.  User requests to list contacts
-2.  NUSConnect shows a list of contacts
-3.  User requests to delete a specific contact in the list
-4.  NUSConnect deletes the contact
+1.  User request to add a person.
+2.  NUSConnect adds the person.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. The person's name or Telegram parameter is not specified.
 
-  Use case ends.
+    1a1. NUSConnect shows an error message.
 
-* 3a. The given index is invalid.
+    Use case resumes at step 1.
 
-    * 3a1. NUSConnect shows an error message.
+* 1b. Any of the person's fields that are specified do not match the required pattern.
+  
+  1b1. NUSConnect shows an error message.
+  
+  Use case resumes at step 1.
 
-      Use case resumes at step 2.
+* 1c. The person already exists.
 
-**Use case: Delete multiple contacts**
+  1c1. NUSConnect shows an error message.
+ 
+  Use case resumes at step 1.
+
+**Use case: UC2 - Editing a person**
 
 **MSS**
 
-1.  User requests to list contacts
-2.  NUSConnect shows a list of contacts
-3.  User requests to delete a list of contacts in the list
-4.  NUSConnect deletes the contacts
+1.  User requests to edit a specific contact in the list.
+2.  NUSConnect edit the contact.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. The list is empty.
 
   Use case ends.
 
-* 3a. At least one of the indices is invalid.
+* 1b. The given index is invalid.
 
-    * 3a1. NUSConnect shows an error message.
+  1b1. NUSConnect shows an error message. 
 
-      Use case resumes at step 2.
+  Use case resumes at step 1.
+  
+* 1c. The person's name or Telegram is edited, but an invalid value is given. 
 
+  1c1. NUSConnect shows an error message.
 
-**Use case: Adding a person**
+  Use case resumes at step 1.
 
+* 1d. The person is being edited to another contact that already exists.
+
+  1d1. NUSConnect shows an error message.
+
+  Use case resumes at step 1.
+
+* 1e. The edits do not change the person.
+
+  1e1. NUSConnect shows an message.
+
+  Use case ends.
+
+**Use case: UC3 - Delete a person**
 
 **MSS**
 
-1.  User request to add a contact
-2.  NUSConnect adds the contact
-
-    Use case ends.
-
-
-**Use case: Listing directory**
-
-**MSS**
-
-1.  User request to list contacts
-2.  NUSConnect shows the list of contacts
+1. User requests to delete a specific person in the list.
+2. NUSConnect deletes the person.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+* 1a. The list is empty.
 
   Use case ends.
 
+* 1b. The given index is invalid.
 
-**Use case: Creating a group**
+  1b1. NUSConnect shows an error message.
+
+  Use case resumes at step 1.
+
+**Use case: UC4 - Delete multiple persons**
+
+**MSS**
+
+1. User requests to delete a list of specific persons in the list.
+2. NUSConnect deletes the persons.
+
+   Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+
+* 1b. At least one of the given indices is invalid.
+
+  1b1. NUSConnect shows an error message.
+
+  Use case resumes at step 1.
+
+**Use case: UC5 - Clearing all entries**
+
+**MSS**
+
+1. User requests to clear NUSConnect.
+2. NUSConnect clears the address book.
+
+   Use case ends.
+
+**Use case: UC6 - Creating a group**
 
 **MSS**
 
 1. User requests to create a group
 2. NUSConnect creates the group
 
-    Use case ends.
+   Use case ends.
 
-
-**Use case: Adding a contact to a group**
+**Use case: UC7 - Deleting a group**
 
 **MSS**
 
-1. User requests to list contacts
-2. NUSConnect shows a list of contacts
-3. User requests to add a contact to a group
-4. NUSConnect adds the contact to the chosen group
+1. NUSConnect shows a list of groups
+2. User requests to delete a specific group in the group list
+3. NUSConnect deletes the group
 
-    Use case ends.
+   Use case ends.
+
+**Extensions**
+
+* 1a. The group list is empty.
+
+  Use case ends.
+
+* 2a. The given group index is invalid.
+
+    * 2a1. NUSConnect shows an error message.
+
+      Use case resumes at step 1.
+
+**Use case: UC8 - Adding a person to a group**
+
+**MSS**
+
+1. User requests to list persons
+2. NUSConnect shows a list of persons
+3. User requests to add a person to a group
+4. NUSConnect adds the person to the chosen group
+
+   Use case ends.
 
 **Extensions**
 
@@ -422,30 +483,63 @@ NUSConnect helps students quickly add, organise and find contacts with minimal e
 
       Use case resumes at step 2.
 
-
-**Use case: Deleting a group**
+**Use case: UC9 - Listing directory**
 
 **MSS**
 
-1. NUSConnect shows a list of groups
-2. User requests to delete a specific group in the group list
-3. NUSConnect deletes the group
+1.  User request to list persons
+2.  NUSConnect shows the list of persons
 
     Use case ends.
 
 **Extensions**
 
-* 1a. The group list is empty.
+* 2a. The list is empty.
+
+  2a1. NUSConnect shows a message.
 
   Use case ends.
 
-* 2a. The given group index is invalid.
+**Use case: UC10 - Locating persons by name**
 
-    * 3a1. NUSConnect shows an error message.
+**MSS**
+
+**Use case: UC11 - Locating persons by module**
+
+**MSS**
+
+**Use case: UC12 - Viewing person details**
+
+**MSS**
+
+1.  User request to view a person.
+2.  NUSConnect shows the details of that person.
+
+    Use case ends.
+
+**Extensions**
+
+* 1a. The list is empty.
+
+  Use case ends.
+
+* 2a. The given index is invalid.
+
+    * 2a1. NUSConnect shows an error message.
 
       Use case resumes at step 1.
 
-*{More to be added}*
+**Use case: UC13 - Sorting the address book**
+
+**MSS**
+
+**Use case: UC14 - Exporting the current address book**
+
+**MSS**
+
+**Use case: UC15 - Importing an address book**
+
+**MSS**
 
 ### Non-Functional Requirements
 
@@ -458,7 +552,6 @@ NUSConnect helps students quickly add, organise and find contacts with minimal e
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Private contact detail**: A contact detail that is not meant to be shared with others.
 * **Major**: A primary major of a student, such as Computer Science.
 * **Module**: An NUS Module, such as CS2103T.
 * **Group**: A group of people in the address book.
@@ -479,7 +572,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+   1. Double-click the jar file Expected: Shows the GUI with a set of sample persons. The window size may not be optimum.
 
 1. Saving window preferences
 
@@ -488,35 +581,132 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+### Adding people
+
+1. Adding a person with only required fields Name and Telegram.
+   1. Prerequisites: The test persons below do not already exist.
+   2. Test case: `add n/John Doe t/@johndoe`<br>
+      Expected: This person is added to NUSConnect.
+   2. Test case: `add n/John Doe Sr. the 2nd S/O Ah-k'ow t/@johndoe`<br>
+      Expected: This person is added to NUSConnect.
+   2. Test case: `add n/1John Doe t/@johndoe`<br>
+      Expected: No person is added. An error message indicates the pattern Name should match.
+   2. Test case: `add n/John Doe* t/@johndoe`<br>
+      Expected: No person is added. An error message indicates the pattern Name should match.
+   2. Test case: `add n/John Doe t/johndoe`<br>
+      Expected: No person is added. An error message indicates the pattern Telegram should match.
+   2. Test case: `add n/John Doe t/@john`<br>
+      Expected: No person is added. An error message indicates the pattern Telegram should match.
+   2. Test case: `add n/1John Doe t/@john`<br>
+      Expected: No person is added. An error message indicates the pattern Name should match.
+2. Adding a person with all required fields and some optional fields.
+    1. Prerequisites: The test persons below do not already exist.
+   2. Test case: `add n/John Doe t/@johndoe p/98765432`<br>
+      Expected: This person is added to NUSConnect.
+   2. Test case: `add n/John Doe t/@johndoe p/12345678`<br>
+      Expected: No person is added. An error message indicates the pattern Phone should match.
+   2. Test case: `add n/John Doe t/@johndoe p/+65 9876 5432`<br>
+      Expected: No person is added. An error message indicates the pattern Phone should match.
+   2. Test case: `add n/John Doe t/@johndoe m/CS2101`<br>
+      Expected: This person is added to NUSConnect.
+   2. Test case: `add n/John Doe t/@johndoe m/CS2101 m/CS2103T m/GESS1006 m/CS2100DE`<br>
+      Expected: This person is added to NUSConnect.
+   2. Test case: `add n/John Doe t/@johndoe m/CS50`<br>
+      Expected: No person is added. An error message indicates the pattern Module should match.
+   2. Test case: `add n/John Doe t/@johndoe m/CS2101 m/CS50`<br>
+      Expected: No person is added. An error message indicates the pattern Module should match.
+   2. Test case: `add n/John Doe t/@johndoe p/12345678 m/CS2101 m/CS50`<br>
+      Expected: No person is added. An error message indicates the pattern Phone should match.
+3. Adding a person without required fields Name and Telegram.
+   1. Test case: `add t/@johndoe`<br>
+       Expected: No person is added. An error message indicates that the command format is invalid.
+   2. Test case: `add n/John Doe`<br>
+      Expected: No person is added. An error message indicates that the command format is invalid.
+   1. Test case: `add t/@johndoe p/98765432`<br>
+      Expected: No person is added. An error message indicates that the command format is invalid.
+   2. Test case: `add n/John Doe p/98765432`<br>
+      Expected: No person is added. An error message indicates that the command format is invalid.
+3. Adding a person with a non-existent field.
+    1. Prerequisites: The test persons below do not already exist.
+   2. Test case: `add n/John Doe t/@johndoe height/180`<br>
+      Expected: No person is added. An error message indicates the pattern Telegram should match.
+   2. Test case: `add t/@johndoe n/John Doe height/180`<br>
+      Expected: No person is added. An error message indicates the pattern Name should match.
+
+### Editing people
+
+1. Editing a person for one field.
+    1. Prerequisites: There is a person to edit, and the test persons below do not already exist.
+   1. Test case: `edit 1 t/@johndoe2`<br>
+      Expected: The person at index 1 is updated.
+   2. Test case: `edit 1 n/John Doe2`<br>
+      Expected: The person at index 1 is updated.
+   1. Test case: `edit 1 p/`<br>
+      Expected: The person at index 1 is updated.
+   2. Test case: `edit 1 m/`<br>
+      Expected: The person at index 1 is updated.
+   1. Test case: `edit 1 p/99998888`<br>
+      Expected: The person at index 1 is updated.
+   2. Test case: `edit 1 m/CS2101`<br>
+      Expected: The person at index 1 is updated.
+   1. Test case: `edit 1 n/`<br>
+      Expected: No person is added. An error message indicates the pattern Telegram should match.
+   2. Test case: `edit 1 t/`<br>
+      Expected: No person is added. An error message indicates the pattern Name should match.
+2. Editing a person for multiple fields.
+    1. Prerequisites: There is a person to edit, and the test persons below do not already exist.
+   1. Test case: `edit 1 n/John Doe2 t/@johndoe2`<br>
+      Expected: The person at index 1 is updated.
+   2. Test case: `edit 1 p/99998888 m/CS2101 m/CS2103T`<br>
+      Expected: The person at index 1 is updated.
+   1. Test case: `edit 1 n/John Doe2 t/@johndoe2 p/99998888 m/`<br>
+      Expected: The person at index 1 is updated.
+   2. Test case: `edit 1 n/ t/@johndoe2 p/99998888 m/`<br>
+      Expected: No person is added. An error message indicates the pattern Name should match.
+   1. Test case: `edit 1 n/John Doe2 t/ p/99998888 m/`<br>
+      Expected: No person is added. An error message indicates the pattern Telegram should match.
+   2. Test case: `edit 1 n/John Doe2 t/@johndoe2 p/12345678 m/`<br>
+      Expected: No person is added. An error message indicates the pattern Phone should match.
 
 ### Deleting people
 
-1. Deleting a person while all persons are being shown
-
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
-
+1. Deleting a person.
+   1. Prerequisites: List all persons using the `list` command. There are three persons in the list.
    1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
-
-   1. Test case: `delete 1 2 1 2`<br>
-      Expected: The first and second contacts are deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
-
+      Expected: The first person is deleted from the list.
+   1. Test case: `delete 2`<br>
+      Expected: The second person deleted from the list.
    1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+      Expected: No person is deleted. An error message indicates that the command format is invalid.
+   1. Test case: `delete 4`<br>
+      Expected: No person is deleted. An error message indicates that `4` is an invalid index.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+1. Deleting multiple persons.
+    1. Prerequisites: List all persons using the `list` command. Three persons in the list.
+    1. Test case: `delete 1 2 3`<br>
+       Expected: The first, second, and third persons are deleted from the list.
+    1. Test case: `delete 1 2 1 2`<br>
+       Expected: The first and second persons are deleted from the list.
+    1. Test case: `delete 1 2 3 4`<br>
+       Expected: No person is deleted. An error message indicates that `4` is an invalid index.
+    1. Test case: `delete 0 1 2 3`<br>
+       Expected: No person is deleted. An error message indicates that the command format is invalid.
+    1. Test case: `delete 0 4`<br>
+       Expected: No person is deleted. An error message indicates that the command format is invalid.
 
-1. _{ more test cases …​ }_
+### Creating a group
 
-### Saving data
+### Deleting a group
 
-1. Dealing with missing/corrupted data files
+### Adding a person to a group
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+### Locating persons by name or modules
 
-1. _{ more test cases …​ }_
+### Sorting the address book
+
+### Exporting the current address book
+
+### Importing an address book
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -527,7 +717,6 @@ Team size: 5
 1. **Make group delete** more versatile. The current group delete command is only able to delete the entire group. This
 is too restrictive. We plan to make `group delete` be able to delete specific member from a group. Adjust `group delete`
 to accept this format `group delete PERSON_INDEX from GROUP_INDEX`  so that we can remove specific member.
-
 
 2. Currently, every person's details like `telegram`, `email` and others are stored in the group array in `addressbook.json`. Since only `name` is typically used within
 group context, we plan to update the group structure in storage to store only the person name. This keeps the JSON smaller.
